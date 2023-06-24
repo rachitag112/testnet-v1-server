@@ -2,7 +2,7 @@ const serverless = require('serverless-http');
 const express = require('express')
 const bodyParser = require('body-parser')
 const cors = require('cors')
-const assetsRouter = require('./src/assetsRoutes2')
+const assetsRouter = require('./src/assetsRoutes')
 const db = require('./src/db')
 
 const app = express()
