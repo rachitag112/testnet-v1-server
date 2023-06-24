@@ -17,6 +17,9 @@
     "mongoose": "^7.2.2",
     "serverless-http": "^3.2.0"
   },
+  "engines": {
+    "node": ">=14.20.1"
+  },
   "devDependencies": {
     "nodemon": "^2.0.22"
   }
