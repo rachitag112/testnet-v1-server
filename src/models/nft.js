@@ -28,7 +28,7 @@ const schema = new mongoose.Schema({
 });
 
 // Define a compound index on tokenId and contractAddress
-schema.index({ tokenId: 1, contractAddress: 1 }, { unique: true });
+// schema.index({ tokenId: 1, contractAddress: 1 }, { unique: true });
 
 const nft = mongoose.model('nfts', schema);
 
