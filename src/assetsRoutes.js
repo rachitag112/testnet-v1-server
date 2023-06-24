@@ -17,6 +17,23 @@ router.get("/assets", async (req, res) => {
   res.json(allAssets); // Send the entire array of assets as a JSON response
 });
 
+router.post('/assets', async (req, res) => {
+  try {
+    const newNft = await nfts.create(req.body)
+    res.status(201).json({
+      status: 'success posting',
+      data: {
+        nft: newNft,
+      },
+    })
+  } catch (err) {
+    res.status(400).json({
+      status: 'fail',
+      message: err,
+    })
+  }
+})
+
 router.get("/assets/:collectionAddress", async (req, res) => {
   const collection = await nfts.find({
     contractAddress: req.params.collectionAddress,
