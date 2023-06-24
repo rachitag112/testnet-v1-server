@@ -35,22 +35,6 @@ router.get("/assets/:collectionAddress/:nftId", async (req, res) => {
   res.send(nft);
 });
 
-router.post("/mint", async (req, res) => {
-  try {
-    const contractABI = require("./contractABI.json");
-    const contractAddress = "0x003109d0b9C15A82665EF6E1C06094C8A231b0fe";
-    const signer = req.body.signer;
-    const contract = new ethers.Contract(contractAddress, contractABI, signer);
-
-    const result = await contract.mintNft(1);
-    res.json(result);
-    console.log(result);
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: "Failed to get data from the contract" });
-  }
-});
-
 router.post("/subscriber", async (req, res) => {
   const email = req.body.email;
 
