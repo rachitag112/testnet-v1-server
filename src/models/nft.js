@@ -6,7 +6,7 @@ const schema = new mongoose.Schema({
     type: Number,
     required: [true, 'A collection must have a tokenId'],
   },
-  contractAddress: {
+  nftAddress: {
     type: Number,
     required: [true, 'A collection must have a contractAddress'],
   },
