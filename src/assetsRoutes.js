@@ -64,4 +64,25 @@ router.post("/subscriber", async (req, res) => {
   res.send("Email added successfully");
 });
 
+router.patch('/State', async (req, res) => {
+  try {
+    const filter = {
+      contractAddress: req.body.contractAddress,
+      tokenId: req.body.tokenId,
+    }
+    console.log(req.body)
+    const update = {
+      state: req.body.state,
+      owner: req.body.owner
+    }
+    const nft = await nfts.findOneAndUpdate(filter, update)
+    res.send('State updated')
+  } catch (err) {
+    res.status(400).json({
+      status: 'fail',
+      message: err,
+    })
+  }
+})
+
 module.exports = router
