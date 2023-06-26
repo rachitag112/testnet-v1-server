@@ -4,10 +4,8 @@ const cors = require('cors')
 require('dotenv').config({ path: './.env' })
 const assetsRouter = require('./src/assetsRoutes')
 const db = require('./src/db')
-const router = require('./src/assetsRoutes')
 
 const app = express()
-const router = express.Router();
 
 app.use(cors())
 app.use(express.json())
@@ -23,3 +21,5 @@ const port = process.env.PORT
 app.listen(port, () => {
   console.log(`App running on port ${port}...`)
 })
+
+module.exports = app
