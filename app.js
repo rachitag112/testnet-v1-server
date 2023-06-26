@@ -13,10 +13,6 @@ app.use(bodyParser.urlencoded({ extended: false }))
 
 app.use('/', assetsRouter)
 
-// router.get("/", (req, res) => {
-//   res.send("GearFi Rocks!");
-// });
-
 const port = process.env.PORT
 app.listen(port, () => {
   console.log(`App running on port ${port}...`)
