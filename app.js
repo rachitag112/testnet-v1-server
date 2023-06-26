@@ -4,19 +4,20 @@ const cors = require('cors')
 require('dotenv').config({ path: './.env' })
 const assetsRouter = require('./src/assetsRoutes')
 const db = require('./src/db')
+const router = require('./src/assetsRoutes')
 
 const app = express()
-// const router = express.Router();
+const router = express.Router();
 
-// app.use(cors())
-// app.use(express.json())
-// app.use(bodyParser.urlencoded({ extended: false }))
+app.use(cors())
+app.use(express.json())
+app.use(bodyParser.urlencoded({ extended: false }))
 
-// app.use('/', assetsRouter)
+app.use('/', assetsRouter)
 
-app.get("/", (req, res) => {
-  res.send("GearFi Rocks!");
-});
+// router.get("/", (req, res) => {
+//   res.send("GearFi Rocks!");
+// });
 
 const port = process.env.PORT
 app.listen(port, () => {
