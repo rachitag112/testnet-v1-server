@@ -63,22 +63,5 @@ router.delete("/deleteListing/:nftId", async (req, res) => {
     });
 });
 
-// Getting NFT Metadata
-router.get("/getNFTMetadata", async (req, res) => {
-  try {
-    const provider = new ethers.providers.JsonRpcProvider('https://mainnet.infura.io/v3/edce0f212ef246d09e0ff5638a492298');
-    const contractABI = require('./contractABI.json');
-    const contractAddress = '0xD57474E76C9EBecC01b65a1494F0a1211df7bCd8';
-    const tokenId = 2709;
-    const contract = new ethers.Contract(contractAddress, contractABI, provider);
-
-    const result = await contract.tokenURI(tokenId);
-    res.json(result);
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: 'Failed to get data from the contract' });
-  }
-});
-
 
 module.exports = router;
