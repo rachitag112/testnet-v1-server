@@ -23,7 +23,7 @@ router.get('/assets/:collectionAddress', async (req, res) => {
   console.log('fjskdjfk')
   const collection = await nfts.find({
     contractAddress: req.params.collectionAddress,
-    state: 'LISTED',
+     state: { $in: ["LISTED", "MARGIN_LISTED"] }
   })
   res.json(collection)
 })
