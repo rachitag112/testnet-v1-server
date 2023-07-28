@@ -78,7 +78,6 @@ router.patch('/addressLower', async (req, res) => {
 
 router.patch('/State', async (req, res) => {
   try {
-    console.log('fksdjfsjkgj')
     console.log(req.body)
     const filter = {
       contractAddress: req.body.contractAddress,
@@ -87,6 +86,7 @@ router.patch('/State', async (req, res) => {
     const update = {
       state: req.body.state,
       owner: req.body.owner.toLowerCase(),
+      price: req.body.price, 
     }
     console.log('filter', filter)
     console.log('update', update)
